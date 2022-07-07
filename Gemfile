@@ -23,10 +23,28 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap', '~> 5.1.3'
 # A gem to automate using jQuery with Rails. Read more: https://github.com/rails/jquery-rails
 gem 'jquery-rails'
+# Flexible authentication solution for Rails with Warden.
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'pry', platforms: [:mri, :mingw, :x64_mingw]
+  # RSpec for Rails 5+. Read more: https://github.com/rspec/rspec-rails
+  gem 'rspec-rails', '~> 5.0.0'
+  # Simple one-liner tests for common Rails functionality. Read more: https://github.com/thoughtbot/shoulda-matchers
+  gem 'shoulda-matchers', '~> 4.0'
+  # A Ruby code quality reporter. Read more: https://github.com/whitesmith/rubycritic
+  gem 'rubycritic', require: false
+  # Code coverage for Ruby with a powerful configuration library. Read more: https://github.com/simplecov-ruby/simplecov
+  gem 'simplecov', require: false
+  # factories. Read more: https://github.com/thoughtbot/factory_bot_rails
+  gem 'factory_bot_rails'
+  # A library for generating fake data such as names, addresses, and phone numbers. Read more: https://github.com/faker-ruby/faker
+  gem 'faker'
+  # Strategies for cleaning databases using ActiveRecord. Read more: https://github.com/DatabaseCleaner/database_cleaner-active_record
+  gem 'database_cleaner-active_record'
 end
 
 group :development do
