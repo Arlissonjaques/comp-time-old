@@ -12,6 +12,8 @@
           </div>
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
             <div class="form-group">
               <%= f.label :email, :class => "form-label mt-4 text-white"%><br />
               <%= f.email_field :email, autofocus: true, :class => "form-control", :id => "email" %>
@@ -28,8 +30,8 @@
 
             <div class="col-md-12 mb-3">
               <p>
-                <%= link_to '#', class: "text-white text-decoration-none" do %>
-                  <%= image_tag('google-white.svg', style: 'height:2vw;width:2vw;') %>&nbsp;&nbsp;
+                <%= link_to '#', class: " text-decoration-none" do %>
+                  <%= image_tag('google-white.svg', style: 'height:1vw;width:1vw;') %>&nbsp;&nbsp;
                   Entrar com o Google
                 <% end %>
               </p>
@@ -43,7 +45,7 @@
 
             <div class="form-group">
               <p class="text-center text-white">
-                Não tem uma conta? Crie uma aqui.
+                Não tem uma conta? Crie uma <%= link_to('aqui.', new_user_registration_path) %>
               </p>
             </div>
           <% end %>
