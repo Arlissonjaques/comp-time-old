@@ -28,9 +28,10 @@
 
             <div class="col-md-12 mb-3">
               <p>
-                <a class="google btn mybtn text-white">
+                <%= link_to '#', class: "text-white text-decoration-none" do %>
+                  <%= image_tag('google-white.svg', style: 'height:2vw;width:2vw;') %>&nbsp;&nbsp;
                   Entrar com o Google
-                </a>
+                <% end %>
               </p>
             </div>
 
