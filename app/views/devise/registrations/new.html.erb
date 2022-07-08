@@ -38,7 +38,7 @@
 
           <div class="col-md-12 mb-3">
             <p>
-              <%= link_to '#', class: "text-decoration-none" do %>
+              <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "text-decoration-none" do %>
                 <%= image_tag('google-white.svg', style: 'height:1vw;width:1vw;') %>&nbsp;&nbsp;
                 Criar com o Google
               <% end %>
