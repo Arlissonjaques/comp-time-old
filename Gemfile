@@ -25,8 +25,6 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
 # Flexible authentication solution for Rails with Warden.
 gem 'devise'
-# Themes for Bootstrap
-gem "bootswatch", github: "thomaspark/bootswatch"
 # Oauth2 strategy for Google
 gem 'omniauth-google-oauth2'
 # Provides CSRF protection on OmniAuth request endpoint on Rails application.
