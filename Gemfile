@@ -27,6 +27,10 @@ gem 'jquery-rails'
 gem 'devise'
 # Themes for Bootstrap
 gem "bootswatch", github: "thomaspark/bootswatch"
+# Oauth2 strategy for Google
+gem 'omniauth-google-oauth2'
+# Provides CSRF protection on OmniAuth request endpoint on Rails application.
+gem 'omniauth-rails_csrf_protection'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -47,6 +51,8 @@ group :development, :test do
   gem 'faker'
   # Strategies for cleaning databases using ActiveRecord. Read more: https://github.com/DatabaseCleaner/database_cleaner-active_record
   gem 'database_cleaner-active_record'
+  # A Ruby gem to load environment variables from `.env`.
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -58,6 +64,8 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # Better error page for Rack apps
+  gem 'better_errors'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
