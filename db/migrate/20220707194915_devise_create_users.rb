@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       ## Rememberable
       t.datetime :remember_created_at
       
-      t.boolean :active_bank, null: false
+      t.boolean :active_bank, default: false
 
       t.timestamps null: false
     end
