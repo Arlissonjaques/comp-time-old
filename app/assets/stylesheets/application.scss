@@ -1,1 +1,16 @@
 @import "bootstrap";
+@import "core/colors";
+@import "devise/sessions/new.scss";
+
+body {
+    background-color: $primary-color;
+}
+
+// .btn-secondary {
+//     background-color: red;
+// }
+
+// .form-control {
+//    border-radius: 50px 50px 50px 50px;
+//    height: 100%;
+// }
