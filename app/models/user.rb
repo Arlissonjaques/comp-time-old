@@ -2,6 +2,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
+  has_many :user_organizations
+  has_many :organizations, through: :user_organizations
 
   def self.from_omniauth(access_token)
     data = access_token.info
@@ -12,3 +14,4 @@ class User < ApplicationRecord
     user
   end
 end
+# annual leave
