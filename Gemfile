@@ -64,6 +64,8 @@ group :development do
   gem 'spring'
   # Better error page for Rack apps
   gem 'better_errors'
+  # Annotate Rails classes with schema and routes info. Read more: https://github.com/ctran/annotate_models
+  gem 'annotate'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
