@@ -21,12 +21,13 @@ class User < ApplicationRecord
   has_many :user_organizations, dependent: :destroy
   has_many :organizations, through: :user_organizations
 
-  validates_presence_of :active_bank
-
   def self.from_omniauth(access_token)
-    email = access_token.info['email']
-    User.find_or_create_by(email: email) do |user|
+    infos = access_token.info
+
+    User.find_or_create_by!(email: infos['email']) do |user|
       user.password = Devise.friendly_token[0, 20]
+      user.firstname = infos['first_name']
+      user.lastname = infos['last_name']
     end
   end  
 end
