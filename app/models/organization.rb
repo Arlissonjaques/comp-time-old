@@ -9,5 +9,7 @@
 class Organization < ApplicationRecord
   belongs_to :user
   has_many :user_organizations
-  has_many :users, through: :organizations
+  has_many :users, through: :user_organizations
+
+  validates_presence_of :name
 end
