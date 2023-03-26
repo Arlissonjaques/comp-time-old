@@ -66,6 +66,8 @@ group :development do
   gem 'better_errors'
   # Annotate Rails classes with schema and routes info. Read more: https://github.com/ctran/annotate_models
   gem 'annotate'
+  # A Ruby static code analyzer and formatter, based on the community Ruby style guide. Read more: https://github.com/rubocop/rubocop
+  gem 'rubocop', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
