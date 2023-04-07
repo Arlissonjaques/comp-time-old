@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - gem_cache:/usr/local/bundle/gems
+      - node_modules:/app/node_modules
+    env_file: .env
+    environment:
+      RAILS_ENV: development
+      DATABASE_URL: postgres://${DB_USER}:${DB_PASSWORD}@database:5432/${DB_NAME}
+    depends_on:     
+      - database
+    networks:
+      - app-network
+
+  database:
+    image: postgres:12.1-alpine
+    environment:
+      POSTGRES_USER: ENV["DB_USER"]
+      POSTGRES_PASSWORD: ENV["DB_PASSWORD"]
+      POSTGRES_DB: ENV["DB_NAME"]
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+volumes:
+  gem_cache:
+  db_data:
+  node_modules:
