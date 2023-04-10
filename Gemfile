@@ -18,7 +18,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bootsnap', '>= 1.16', require: false
 # Bootstrap rubygem for Rails. Read more: https://github.com/twbs/bootstrap-rubygem
 gem 'bootstrap', '~> 5.2.2'
 # A gem to automate using jQuery with Rails. Read more: https://github.com/rails/jquery-rails
