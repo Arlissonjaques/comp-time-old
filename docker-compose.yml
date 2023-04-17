@@ -2,6 +2,8 @@ version: '3.8'
 
 services:
   app:
+    tty: true
+    stdin_open: true
     build: .
     ports:
       - "3000:3000"
