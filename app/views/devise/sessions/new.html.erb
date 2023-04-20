@@ -7,25 +7,40 @@
       </div>
 
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
-          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-            <button type="button" class="btn btn-primary btn-floating mx-1">
-              <i class="fab fa-facebook-f"></i>
-            </button>
 
-            <button type="button" class="btn btn-primary btn-floating mx-1">
+        <h1 class="text-center title">Faça login para acessar sua conta!</h1><br><br>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+            <p class="lead fw-normal mb-0 me-3">Sign in with:</p>
+
+            <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+              <%= image_tag("google.svg", :class => "img-fluid", size: "25x25") %>  
+            <% end %>
+
+            <%# para uso quando as outras opcoes de login social forem implementados %>
+  
+            <%# <button type="button" class="btn btn-primary btn-floating mx-1">
               <i class="fab fa-twitter"></i>
             </button>
 
             <button type="button" class="btn btn-primary btn-floating mx-1">
               <i class="fab fa-linkedin-in"></i>
-            </button>
-          </div>
-
-          <div class="divider d-flex align-items-center my-4">
-            <hr style="color: red;">
-          </div>
+            </button> %>
+          </div><br>
+          <div class="container">
+            <div class="row">
+              <div class="col-5">
+                <hr class="my-2">
+              </div>
+              <div class="col-2 text-center">
+                <span class="text-muted font-weight-bold">OR</span>
+              </div>
+              <div class="col-5">
+                <hr class="my-2">
+              </div>
+            </div>
+          </div><br>
 
           <!-- Email input -->
           <div class="form-outline mb-4">
@@ -45,6 +60,7 @@
             <!-- Checkbox -->
             <div class="form-check mb-0">
               <%# Caso aja necessidade de adicionar o Remember me seria aqui. %>
+
               <%# <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
               <label class="form-check-label" for="form2Example3">
                 Remember me
@@ -54,12 +70,16 @@
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <button type="button" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-            <p class="small mt-2 pt-1 mb-0">Don't have an account? <a href="#!"
-                class="link-danger">Register</a></p>
+            <button type="button" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">
+              Login
+            </button>
+
+            <p class="small mt-2 pt-1 mb-0">
+              Don't have an account?
+              <%= link_to 'Register.', new_user_registration_path, class: "link-danger" %>
+            </p>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>

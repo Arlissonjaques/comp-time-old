@@ -2,15 +2,23 @@
 @import "core/colors";
 @import "devise/sessions/new.scss";
 
-body {
-    background-color: $primary-color;
+:root {
+  --primary: #6864fa;
+  --secondary: #ff6585;
 }
 
-// .btn-secondary {
-//     background-color: red;
-// }
+.bg-primary, .btn-primary{
+  background-color: var(--primary) !important;
+}
 
-// .form-control {
-//    border-radius: 50px 50px 50px 50px;
-//    height: 100%;
-// }
+body {
+  font-family: 'Quicksand', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.title {
+  font-family: 'Fredoka', sans-serif;
+}
