@@ -11,6 +11,12 @@
         <h1 class="text-center title">Faça login para acessar sua conta!</h1><br><br>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <% if alert %>
+            <div class="alert alert-danger" role="alert">
+              <%= alert %>
+            </div>
+          <% end %>
+
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3">Sign in with:</p>
 
@@ -47,7 +53,8 @@
             <label class="form-label">Email</label>
             <%= f.email_field :email,
               class: 'form-control form-control-lg rounded-pill',
-              placeholder: 'Enter a valid email address'
+              placeholder: 'Enter a valid email address',
+              required: true
             %>
           </div>
 
@@ -56,7 +63,8 @@
             <label class="form-label">Password</label>
             <%= f.password_field :password,
               class: 'form-control form-control-lg rounded-pill',
-              placeholder: 'Enter password'
+              placeholder: 'Enter password',
+              required: true
             %>
           </div>
 
