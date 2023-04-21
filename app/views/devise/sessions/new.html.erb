@@ -70,13 +70,12 @@
                 Remember me
               </label> %>
             </div>
-            <a href="#!" class="text-body">Forgot password?</a>
+            <%= link_to 'Forgot password?', new_user_password_path, class: 'text-body' %>
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <%= link_to user_session_path,  method: :post do %>
-              <%= image_tag "button.svg", size: "250x60", class: "img-fluid"  %>
-            <% end %>   
+            <%# submit button %>
+            <%= image_submit_tag('button.svg', class: "img-fluid", width: 250, height: 60) %>
  
             <p class="small mt-2 pt-1 mb-0">
               Don't have an account?
