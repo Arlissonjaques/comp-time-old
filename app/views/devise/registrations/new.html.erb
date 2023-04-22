@@ -1,39 +1,132 @@
-<section class="ftco-section">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6 text-center mb-5">
-        <h2 class="heading-section">Crie sua conta, é gratis! </h2>
+<section class="vh-100">
+  <div class="container-fluid h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <%= image_tag("sign_up_image.svg", :alt => "rss feed", :class => "img-fluid") %>
       </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-5">
-        <div class="login-wrap p-4 p-md-5">
-          <div class="icon d-flex align-items-center justify-content-center">
-            <span class="fa fa-user-o"></span>
+
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <h1 class="text-center title">Crie sua conta, é gratis!</h1><br><br>
+
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <% if alert %>
+            <div class="alert alert-danger" role="alert">
+              <%= alert %>
+            </div>
+          <% end %>
+
+          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+            <p class="lead fw-normal mb-0 me-3">Sign up with:</p>
+
+            <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+              <%= image_tag("google-icon.svg", :class => "img-fluid space-between-icons", size: "25x25") %>  
+            <% end %>
+
+            <%# para uso quando as outras opcoes de login social forem implementados %>
+  
+            <%# <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-twitter"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-linkedin-in"></i>
+            </button> %>
+          </div><br>
+          <div class="container">
+            <div class="row">
+              <div class="col-5">
+                <hr class="my-2">
+              </div>
+              <div class="col-2 text-center">
+                <span class="text-muted font-weight-bold">OR</span>
+              </div>
+              <div class="col-5">
+                <hr class="my-2">
+              </div>
+            </div>
           </div><br>
 
-          <form action="#" class="login-form">
-            <div class="form-group">
-              <input type="text" class="form-control rounded-left" placeholder="Username" required>
-            </div><br>
+          <!-- Firstname -->
+          <div class="form-outline mb-4">
+            <%= f.label 'Firstname' %>
+            <%= f.text_field :firstname,
+              class: 'form-control form-control-lg rounded-pill',
+              placeholder: 'Firstname',
+              required: true
+            %>
+          </div>
 
-            <div class="form-group d-flex">
-              <input type="password" class="form-control rounded-left" placeholder="Password" required>
-            </div>
+          <!-- Lastname -->
+          
+          <div class="form-outline mb-4">
+            <%= f.label 'Lastname' %>
+            <%= f.text_field :lastname,
+              class: 'form-control form-control-lg rounded-pill',
+              placeholder: 'Lastname',
+              required: true
+            %>
+          </div>
 
-            <div class="form-group d-md-flex">
-              <div class="w-50 text-md-right">
-                <a href="#">Forgot Password</a>
-              </div>
-            </div><br>
+          <!-- Email -->
+          <div class="form-outline mb-4">
+            <%= f.label 'Email' %>
+            <%= f.email_field :email,
+              class: 'form-control form-control-lg rounded-pill',
+              placeholder: 'Email',
+              required: true
+            %>
+          </div>
 
-            <div class="form-group">
-              <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Get Started</button>
-            </div>
-          </form>
-        </div>
+          <!-- Phone -->
+          <div class="form-outline mb-4">
+            <%= f.label 'Phone' %>
+            <%= f.text_field :phone,
+              class: 'form-control form-control-lg rounded-pill',
+              placeholder: 'Phone'
+            %>
+          </div>
+
+          <!-- Password -->
+          <div class="form-outline mb-4">
+            <%= f.label 'Password' %>
+            <%= f.password_field :password,
+              class: 'form-control form-control-lg rounded-pill',
+              placeholder: 'Password',
+              required: true
+            %>
+          </div>
+
+          <!-- Password confirmation -->
+          <div class="form-outline mb-4">
+            <%= f.label 'Password confirmation' %>
+            <%= f.password_field :password_confirmation,
+              class: 'form-control form-control-lg rounded-pill',
+              placeholder: 'Password confirmation',
+              required: true
+            %>
+          </div><br>
+
+          <div class="text-center text-lg-start mt-4 pt-2 flex-row align-items-center">
+            <%= image_submit_tag('sign-up-button.svg',
+              class: 'img-fluid',
+              width: 250,
+              height: 60,
+              style: 'vertical-align: middle;'
+            ) %>
+
+            <%= link_to(
+              image_tag('back-button.svg',
+                class: 'img-fluid',
+                width: 250,
+                height: 60,
+                style: 'vertical-align: middle;'
+              ),
+              users_path,
+              style: 'padding-left: 2rem;'
+            ) %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
