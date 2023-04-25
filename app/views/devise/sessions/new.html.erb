@@ -1,57 +1,98 @@
+<section class="vh-100">
+  <div class="container-fluid h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
 
-<div class="container">
-  <div class="row justify-content-center align-items-center vh-100">
-    <div class="col-md-5 mx-auto">
-      <div id="first">
-        <div class="myform form">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <%= image_tag("timing-image3.svg", :alt => "rss feed", :class => "img-fluid") %>
+      </div>
 
-          <div class="logo mb-3">
-            <div class="col-md-12 text-center text-white">
-              <h1>Login</h1>
-            </div>
-          </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <%= render "devise/shared/error_messages", resource: resource %>
+        <h1 class="text-center title">Faça login para acessar sua conta!</h1><br><br>
 
-            <div class="form-group">
-              <%= f.label :email, :class => "form-label mt-4 text-white"%><br />
-              <%= f.email_field :email, autofocus: true, :class => "form-control", :id => "email" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label :password, :class => "form-label mt-4 text-white"%><br />
-              <%= f.password_field :password, :class => "form-control", :id => "password" %>
-            </div><br>
-
-            <div class="actions text-center">
-              <%= f.submit "Login", :class => "btn btn-info" %>
-            </div><br>
-
-            <div class="col-md-12 mb-3">
-              <p>
-                <%= link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "text-decoration-none" do %>
-                  <%= image_tag('google-white.svg', style: 'height:1vw;width:1vw;') %>&nbsp;&nbsp;
-                  Entrar com o Google
-                <% end %>
-              </p>
-            </div>
-
-            <div class="col-md-12">
-              <div class="login-or text-white text-center">
-                <hr class="hr-or"><span class="span-or">or</span>
-              </div>
-            </div><br>
-
-            <div class="form-group">
-              <p class="text-center text-white">
-                Não tem uma conta? Crie uma <%= link_to('aqui.', new_user_registration_path) %>
-              </p>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <% if alert %>
+            <div class="alert alert-danger" role="alert">
+              <%= alert %>
             </div>
           <% end %>
 
-        </div> 
+          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+            <p class="lead fw-normal mb-0 me-3">Sign in with:</p>
+
+            <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+              <%= image_tag("google-icon.svg", :class => "img-fluid space-between-icons", size: "25x25") %>  
+            <% end %>
+
+            <%# para uso quando as outras opcoes de login social forem implementados %>
+  
+            <%# <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-twitter"></i>
+            </button>
+
+            <button type="button" class="btn btn-primary btn-floating mx-1">
+              <i class="fab fa-linkedin-in"></i>
+            </button> %>
+          </div><br>
+          <div class="container">
+            <div class="row">
+              <div class="col-5">
+                <hr class="my-2">
+              </div>
+              <div class="col-2 text-center">
+                <span class="text-muted font-weight-bold">OR</span>
+              </div>
+              <div class="col-5">
+                <hr class="my-2">
+              </div>
+            </div>
+          </div><br>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label class="form-label">Email</label>
+            <%= f.email_field :email,
+              class: 'form-control form-control-lg rounded-pill',
+              placeholder: 'Enter a valid email address',
+              required: true
+            %>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <label class="form-label">Password</label>
+            <%= f.password_field :password,
+              class: 'form-control form-control-lg rounded-pill',
+              placeholder: 'Enter password',
+              required: true
+            %>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <!-- Checkbox -->
+            <div class="form-check mb-0">
+              <%# Caso aja necessidade de adicionar o Remember me seria aqui. %>
+
+              <%# <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+              <label class="form-check-label" for="form2Example3">
+                Remember me
+              </label> %>
+            </div>
+            <%= link_to 'Forgot password?', new_user_password_path, class: 'text-body' %>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <%# submit button %>
+            <%= image_submit_tag('button.svg', class: "img-fluid", width: 250, height: 60) %>
+ 
+            <p class="small mt-2 pt-1 mb-0">
+              Don't have an account?
+              <%= link_to 'Register.', new_user_registration_path, class: "link-danger" %>
+            </p>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-</div>
+</section>
+
