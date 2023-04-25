@@ -25,6 +25,14 @@ services:
       - db_data:/var/lib/postgresql/data
     networks:
       - app-network
+  # necessario caso queira testar o recebimento de emails
+  # mailcatcher:
+  #   image: schickling/mailcatcher
+  #   ports:
+  #     - "1025:1025"
+  #     - "1080:1080"
+  #   networks:
+  #     - app-network
 
 networks:
   app-network:
