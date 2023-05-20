@@ -29,6 +29,8 @@ gem 'devise'
 gem 'omniauth-google-oauth2'
 # Provides CSRF protection on OmniAuth request endpoint on Rails application.
 gem 'omniauth-rails_csrf_protection'
+# Sprockets Rails integration
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
